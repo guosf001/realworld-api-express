@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://30.37.82.41:27017/realworld', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const { dbUrl } = require('../config/config.default')
+mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 
@@ -16,8 +14,3 @@ db.once('open', function () {
   console.log('数据库链接成功');
 });
 
-//创建了一个模型
-const Cat = mongoose.model('Cat', { name: String });
-
-const kitty = new Cat({ name: 'Zildjian' });
-// kitty.save().then(() => console.log('meow'));
