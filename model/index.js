@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { dbUrl } = require('../config/config.default')
+const { dbUrl } = require('../config/config.default');
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
@@ -14,3 +14,8 @@ db.once('open', function () {
   console.log('数据库链接成功');
 });
 
+//组织导出模型类
+module.exports = {
+  User: mongoose.model('User', require('./user')),
+  Article: mongoose.model('Article', require('./article')),
+};
