@@ -14,10 +14,10 @@ app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
-//挂载路由
+// 挂载路由
 app.use('/api', router);
 
-//挂载统一处理服务器错误中间件
+// 挂载统一处理服务器错误中间件
 app.use(errorHandler());
 
 app.listen(PORT, () => {
